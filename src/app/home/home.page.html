@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      MySecrets App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngIf="secretsData?.length > 0" >
+    <ion-text *ngFor="let secret of secretsData" >
+      {{ secret.Name }}
+    </ion-text>
+  </ion-list>
+  <div id="container" *ngIf="secretsData == null || secretsData.length < 1" >
+    <ion-text>
+      No hay secretos guardados
+    </ion-text>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['add']">
+      <ion-icon name="add" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
